@@ -8,26 +8,32 @@ The Data is present in [Kaggle](https://www.kaggle.com/datasets/olistbr/brazilia
 
 In 2019, Olist chief executive and founder Tiago Dalvi said the company plans to expand the number of sellers it serves to 100,000 in two years from current 7000. We have data from 2016 to 2018 and will be analysing it from this perspective. The increase in sellers means increase in the commissions to Olist from the sales.
 
-Main questions for analysis are:
+# Tools Used: #
+  1) Python: Data scrapping, cleaning, augmenting and merging and initial EDA
+  2) Azure PostgreS Database: Storing the clean data
+  2) SQL: ER Diagram, Relationship creation
+  3) Tableau: Visualizations
+
+# Main questions for analysis are: #
   1. How is the growth in revenue (main KPI) in this timeframe?
   2. How to increase the seller base? Does that impact the Revenue
   4. Are there any regions where sellers might be not sufficient? How is it impacting the customers?
   5. Which products needs more attention?
   6. What could be the predicted revenues?
 
-How the Olist business works?
+# How the Olist business works? #
   1. Customer orders and it creates an order in orders dataset with status 'created'
   2. Order is approved and it creates the record in order_items dataset and the status is changed to 'approved'
   3. Order is processed and the status is changed to 'processing'
   4. Order is handed to logistics of Olist and the status is changed to 'shipped'
   5. Order is delivered to customer and the status is changed to 'delivered'
   
-Data Quality:
+# Data Quality: #
   1. Data is 98% accurate.
-  2. For the 2% records, the values in date fields are not in sync. For example, in shipping limit date, there is date for 2020 which is far ahead of actual deleivered to carrier date and since our data is for until 2018, it is absurd.
-  3. For records with order_status as invoiced, processing, shipped, unavailable and approved, there are null values in deleivered carrier date and delivered customer date. We checked the reviewes dataset and these packages were actually missing. 
+  2. For the 2% records, the values in date fields are not in sync. For example, in shipping limit date, there is date for 2020 which is far ahead of actual              deleivered to carrier date and since our data is for until 2018, it is absurd.
+  3. For records with order_status as invoiced, processing, shipped, unavailable and approved, there are null values in deleivered carrier date and delivered            customer date. We checked the reviewes dataset and these packages were actually missing. 
   
- Hypotheses and results:
+# Hypotheses and results: #
   1. Hypothesis 1: Increasing sellers will increase our product palatte, thus attracting more customers resulting in more revenue
      Result: Proved Wrong
      Why: The Sellers were increaseing in 2018 from Jan to Aug but the Gross Merchandise Value was stagnant
@@ -44,7 +50,7 @@ Data Quality:
           ii) How: By studying the product categories that frequent purchasers buy vs that one time purchasers buy
             It was found that Bed, Bath and Table are bought by the frequent purchasers and contribute the highest (13%) to GMV. As compared to this, the one time               buyers buying Bed bath and Table contribute only 7%. Also, Furniture Decor is the new category found in frequent purchasers category that contribute                 more than 8% in GMV and it is not prominent for one time buyers.
             
-Recommendations:
+# Recommendations: #
 Olist should focus on retaining the customers by 
   i) Cross or Up-selling of Bed, Bath and Table to first time customers
   ii) Promote furniture decor to first time customers
